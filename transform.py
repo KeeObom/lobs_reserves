@@ -14,7 +14,7 @@ reinsurance_files = []
 # os.makedirs(results_folder, exist_ok=True)
 
 # Create a Streamlit app
-st.title("File Processor")
+st.title("LOB & Reinsurance File Processor")
 
 # Sidebar for file selection
 st.sidebar.header("File Selection")
