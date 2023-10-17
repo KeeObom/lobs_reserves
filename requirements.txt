@@ -23,7 +23,6 @@ cymem==2.0.7
 debugpy==1.6.7
 decorator==5.1.1
 docopt==0.6.2
-en-core-web-md @ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.5.0/en_core_web_md-3.5.0-py3-none-any.whl#sha256=b492fd2dfeee931dd60232fd1a122bb5c3542ebcd5d614f11844647050aa539e
 et-xmlfile==1.1.0
 executing==1.2.0
 filelock==3.12.3
@@ -32,7 +31,6 @@ fonttools==4.40.0
 fsspec==2023.6.0
 funcy==2.0
 gast==0.4.0
-gensim==4.3.1
 gitdb==4.0.10
 GitPython==3.1.37
 google-auth==2.22.0
@@ -93,11 +91,9 @@ pycountry==22.3.5
 pydantic==1.10.8
 pydeck==0.8.1b0
 Pygments==2.15.1
-pyLDAvis==3.4.1
 pyparsing==3.1.0
 python-dateutil==2.8.2
 pytz==2023.3
-pywin32==306
 pyxlsb==1.0.10
 PyYAML==6.0.1
 pyzmq==25.1.0
@@ -110,9 +106,6 @@ rich==13.6.0
 rpds-py==0.10.6
 rsa==4.9
 safetensors==0.3.3
-scikit-learn==1.2.2
-scipy==1.11.0
-seaborn==0.12.2
 segtok==1.5.11
 six==1.16.0
 smart-open==6.3.0
@@ -127,12 +120,6 @@ sumy==0.11.0
 sympy==1.12
 tabulate==0.9.0
 tenacity==8.2.3
-tensorboard==2.13.0
-tensorboard-data-server==0.7.1
-tensorflow==2.13.0
-tensorflow-estimator==2.13.0
-tensorflow-intel==2.13.0
-tensorflow-io-gcs-filesystem==0.31.0
 termcolor==2.3.0
 thinc==8.1.10
 threadpoolctl==3.1.0
