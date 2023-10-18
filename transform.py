@@ -7,13 +7,16 @@ import zipfile
 from github import Github
 import config
 
+github_access_token = os.environ.get("access_token")
+
+
 # Initialize lists to store selected files
 lob_files = []
 reinsurance_files = []
 
 # Define your GitHub repository credentials
 github_username = 'KeeObom'
-github_token = config.pa_token
+github_token = github_access_token
 repository_name = 'lobs_reserves'
 
 # Initialize a GitHub instance with your credentials
