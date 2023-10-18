@@ -171,7 +171,7 @@ if st.button("Generate All"):
             repo.create_file(zip_file_name, f"Create {zip_file_name}", zip_file_content, branch="main")
 
         # Add a link to the GitHub processed_sheets.zip file
-    processed_sheets_link = f"[Download processed_sheets.zip](https://github.com/{github_username}/{repository_name}/blob/main/{zip_file_name})"
+    processed_sheets_link = f"[Download Processed Sheets.zip](https://github.com/{github_username}/{repository_name}/blob/main/{zip_file_name})"
     st.markdown(processed_sheets_link)
 
 # Clear selections
