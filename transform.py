@@ -4,10 +4,23 @@ import os
 import shutil
 from io import BytesIO
 import zipfile
+from github import Github
 
 # Initialize lists to store selected files
 lob_files = []
 reinsurance_files = []
+
+# Define your GitHub repository credentials
+github_username = 'KeeObom'
+github_token = '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'
+repository_name = 'lobs_reserves'
+
+# Initialize a GitHub instance with your credentials
+g = Github(github_username, github_token)
+
+# Specify the target repository
+repo = g.get_repo(f"{github_username}/{repository_name}")
+
 
 # Create a Streamlit app
 st.title("LOB & Reinsurance File Processor")
@@ -74,6 +87,9 @@ if st.button("Generate All"):
         first_sheet_group3 = group3_sheets[0]
         first_sheet_group4 = group4_sheets[0]
 
+        # Define the ZIP file name on GitHub
+        zip_file_name = "Dodo_results/processed_sheets.zip"
+
         for sheet_name in total_sheets:
             if sheet_name in group1_sheets:
                 # Process each sheet in group 1 and save them in the processed_sheets dictionary
@@ -118,17 +134,42 @@ if st.button("Generate All"):
         st.success("All sheets processed successfully.")
 
 
-        # Define the path to the ZIP file in your app's working directory
-        zip_file_path = "./Dodo_results/processed_sheets.zip"  # Modify the path as needed
+        # # Define the path to the ZIP file in your app's working directory
+        # zip_file_path = "./Dodo_results/processed_sheets.zip"  # Modify the path as needed
 
-        # Generate and save the ZIP file
-        with zipfile.ZipFile(zip_file_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        # # Generate and save the ZIP file
+        # with zipfile.ZipFile(zip_file_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        #     for sheet_name, df in processed_sheets.items():
+        #         csv_data = df.to_csv(index=False)
+        #         zipf.writestr(f"{sheet_name}.csv", csv_data.encode())
+
+        # Generate and save the ZIP file on your local machine
+        with zipfile.ZipFile("processed_sheets.zip", 'w', zipfile.ZIP_DEFLATED) as zipf:
             for sheet_name, df in processed_sheets.items():
                 csv_data = df.to_csv(index=False)
                 zipf.writestr(f"{sheet_name}.csv", csv_data.encode())
 
-        # Display a link to download the ZIP file
-        st.markdown(f"[Download All as ZIP]({zip_file_path})")
+        # Read the content of the generated ZIP file
+        with open("processed_sheets.zip", 'rb') as zip_file:
+            zip_file_content = zip_file.read()
+
+        # Upload the generated ZIP file to your GitHub repository
+        zip_contents = None
+        try:
+            zip_contents = repo.get_contents(zip_file_name)
+        except Exception as e:
+            pass
+
+        if zip_contents:
+            # If the file exists, update it with the new content and provide the SHA
+            repo.update_file(zip_file_name, f"Update {zip_file_name}", zip_file_content, zip_contents.sha, branch="main")
+        else:
+            # If the file does not exist, create it
+            repo.create_file(zip_file_name, f"Create {zip_file_name}", zip_file_content, branch="main")
+
+        # Add a link to the GitHub processed_sheets.zip file
+    processed_sheets_link = f"[Download processed_sheets.zip](https://github.com/{github_username}/{repository_name}/blob/main/{zip_file_name})"
+    st.markdown(processed_sheets_link)
 
 # Clear selections
 if st.button("Clear Selections"):
