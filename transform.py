@@ -5,6 +5,7 @@ import shutil
 from io import BytesIO
 import zipfile
 from github import Github
+import config
 
 # Initialize lists to store selected files
 lob_files = []
@@ -12,7 +13,7 @@ reinsurance_files = []
 
 # Define your GitHub repository credentials
 github_username = 'KeeObom'
-github_token = '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'
+github_token = config.pa_token
 repository_name = 'lobs_reserves'
 
 # Initialize a GitHub instance with your credentials
