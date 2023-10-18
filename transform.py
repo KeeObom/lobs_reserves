@@ -5,10 +5,9 @@ import shutil
 from io import BytesIO
 import zipfile
 from github import Github
-import streamlit.secrets as secrets
 
 # Retrieve the GitHub personal access token
-github_access_token = secrets["github"]["access_token"]
+github_access_token = st.secrets["github"]["access_token"]
 
 # Initialize lists to store selected files
 lob_files = []
