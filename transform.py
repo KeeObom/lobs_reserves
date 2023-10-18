@@ -5,7 +5,7 @@ import shutil
 from io import BytesIO
 import zipfile
 from github import Github
-import config
+#import config
 
 github_access_token = os.environ.get("access_token")
 
