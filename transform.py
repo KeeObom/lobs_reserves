@@ -120,8 +120,8 @@ if st.button("Generate All"):
                 st.success(f"Processed {sheet_name}")
 
             elif sheet_name in group4_sheets:
-                # For group 2, duplicate the first sheet in the group and save in the processed_sheets dictionary
-                original_sheet = processed_sheets[first_sheet_group3]
+                # For group 4, duplicate the first sheet in the group and save in the processed_sheets dictionary
+                original_sheet = processed_sheets[first_sheet_group4]
                 processed_sheets[sheet_name] = original_sheet.copy()
                 st.success(f"Processed {sheet_name}")
 
