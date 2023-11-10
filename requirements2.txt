@@ -1,0 +1,5 @@
+streamlit
+github 
+pandas 
+io 
+os 

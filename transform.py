@@ -174,6 +174,15 @@ if st.button("Generate All"):
     processed_sheets_link = f"[Download Processed Sheets.zip](https://github.com/{github_username}/{repository_name}/blob/main/{zip_file_name})"
     st.markdown(processed_sheets_link)
 
+
+    # Download the ZIP file to system
+    st.download_button(
+        label="Download to System",
+        data=zip_file_content,
+        file_name="processed_sheets.zip",
+        key="download_button"
+    )
+
 # Clear selections
 if st.button("Clear Selections"):
     lob_files = []
