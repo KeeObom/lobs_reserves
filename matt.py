@@ -20,6 +20,7 @@ results_folder = os.path.join(os.getcwd(), "Dodo_results")
 os.makedirs(results_folder, exist_ok=True)
 
 # Initialize a list to store processed sheet DataFrames
+# This stores the csv files that has been processed
 processed_sheets = {}
 
 # Combine the lists of files
