@@ -31,8 +31,8 @@ st.title("LOB & Reinsurance File Processor")
 # Sidebar for file selection
 st.sidebar.header("File Selection")
 
-lob_files = st.sidebar.file_uploader("Upload Line of Business Files", accept_multiple_files=True, type=["xlsb"])
-reinsurance_files = st.sidebar.file_uploader("Upload Reinsurance Files", accept_multiple_files=True, type=["xlsb"])
+lob_files = st.sidebar.file_uploader("Upload Line of Business Files", accept_multiple_files=True, type=["xlsx", "xlsb"])
+reinsurance_files = st.sidebar.file_uploader("Upload Reinsurance Files", accept_multiple_files=True, type=["xlsx", "xlsb"])
 
 # Display selected files
 st.sidebar.subheader("Selected Files:")
