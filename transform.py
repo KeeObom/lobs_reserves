@@ -23,7 +23,7 @@ g = Github(github_username, github_token)
 repo = g.get_repo(f"{github_username}/{repository_name}")
 
 # Create a Streamlit app
-st.title("LOB & Reinsurance File Processor")
+st.title("LOB & Reinsurance File Processor V2")
 
 # Sidebar for file selection
 st.sidebar.header("File Selection")
